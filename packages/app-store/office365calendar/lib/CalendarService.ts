@@ -510,6 +510,8 @@ class Office365CalendarService implements Calendar {
         timeZone: event.organizer.timeZone,
       },
       hideAttendees: !event.seatsPerTimeSlot ? false : !event.seatsShowAttendees,
+      isReminderOn: false,
+      responseRequested: false,
       organizer: {
         emailAddress: {
           address: event.destinationCalendar

@@ -299,6 +299,9 @@ class Office365CalendarService implements Calendar {
 
       const response = await this.fetcher(eventsUrl, {
         method: "POST",
+        headers: {
+          Prefer: "outlook.notification-disable",
+        },
         body: JSON.stringify(this.translateEvent(event)),
       });
 
@@ -332,6 +335,9 @@ class Office365CalendarService implements Calendar {
 
       const response = await this.fetcher(`${await this.getUserEndpoint()}/calendar/events/${uid}`, {
         method: "PATCH",
+        headers: {
+          Prefer: "outlook.notification-disable",
+        },
         body: JSON.stringify(this.translateEvent(event, rescheduledEvent)),
       });
 
